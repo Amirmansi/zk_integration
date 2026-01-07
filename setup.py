@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
+# Read dependencies from requirements.txt
 with open('requirements.txt') as f:
-    install_requires = f.read().strip().split('\n')
+    install_requires = [pkg for pkg in f.read().splitlines() if pkg.strip()]
 
+# Get version from zk_integration/__init__.py
 from zk_integration import __version__ as version
 
 setup(
